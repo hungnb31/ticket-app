@@ -33,3 +33,24 @@ it("returns a 400 with missing email and password", async () => {
     .send({ password: "password" })
     .expect(400);
 });
+
+it("disallows duplicate email", async () => {
+  await request(app)
+    .post("/api/users/signup")
+    .send({ email: "test@test.com", password: "password" })
+    .expect(201);
+
+  await request(app)
+    .post("/api/users/signup")
+    .send({ email: "test@test.com", password: "password" })
+    .expect(400);
+});
+
+it("set a cookie after successful signup", async () => {
+  const response = await request(app)
+    .post("/api/users/signup")
+    .send({ email: "test@test.com", password: "password" })
+    .expect(201);
+
+  expect(response.get("Set-Cookie")).toBeDefined();
+});
