@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@types/cookie-session": "^2.0.43",
+    "@types/jsonwebtoken": "^8.5.5",
     "@types/mongoose": "^5.11.97"
   }
 }
