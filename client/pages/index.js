@@ -1,22 +1,21 @@
-import axios from "axios";
+import { buildClient } from "../api/build-client";
 
-const Index = ({ data }) => {
-  console.log({ data });
-  return <h1>Index Page</h1>;
+const Index = ({ currentUser }) => {
+  return (
+    <>
+      {currentUser ? (
+        <h1>You are signed in</h1>
+      ) : (
+        <h1>You are NOT signed in</h1>
+      )}
+    </>
+  );
 };
 
-Index.getInitialProps = async ({ req }) => {
-  if (typeof window === "undefined") {
-    const { data } = await axios.get(
-      "http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/users/currentuser",
-      { headers: req.headers } // pass cookies and other fields in header
-    );
-
-    return { data };
-  } else {
-    const { data } = await axios.get("/api/users/currentuser");
-    return { data };
-  }
+Index.getInitialProps = async (context) => {
+  const client = buildClient(context);
+  const { data } = await client.get("/api/users/currentuser");
+  return data;
 };
 
 export default Index;
