@@ -3,7 +3,7 @@ kind: Config
 deploy:
   kubectl:
     manifests:
-      - ./infra/k8s/*
+      - ./infra/k8s/**/*
 build:
   local:
     push: false
@@ -24,3 +24,11 @@ build:
         manual:
           - dest: .
             src: "**/*.js"
+    - image: 29ff/ticketapp-tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: "**/*.ts"

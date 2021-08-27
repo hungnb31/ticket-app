@@ -7,7 +7,7 @@ const start = async () => {
     throw new Error("JWT_KEY must be defined");
   }
   try {
-    await mongoose.connect("mongodb://auth-mongo-srv:27017/auth", {
+    await mongoose.connect("mongodb://tickets-mongo-srv:27017/tickets", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
