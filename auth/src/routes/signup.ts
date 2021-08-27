@@ -3,9 +3,8 @@ import * as express from "express";
 import { body } from "express-validator";
 import { sign } from "jsonwebtoken";
 
-import { validateRequest } from "../middlewares/validate-request";
+import { validateRequest, BadRequestError } from "@31ff/common";
 import { User } from "../models/user";
-import { BadRequestError } from "../errors/bad-request-error";
 
 const router = express.Router();
 
