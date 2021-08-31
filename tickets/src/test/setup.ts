@@ -13,6 +13,8 @@ declare global {
 }
 
 let mongo;
+
+jest.mock("../nats-wrapper");
 // init connection before test
 beforeAll(async () => {
   // setup env
@@ -29,6 +31,7 @@ beforeAll(async () => {
 
 // clean mongodb before each test
 beforeEach(async () => {
+  jest.clearAllMocks();
   const collections = await mongoose.connection.db.collections();
 
   for (let collection of collections) {
