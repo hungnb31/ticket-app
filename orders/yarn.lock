@@ -501,10 +501,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@ticketappdev/common@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@ticketappdev/common/-/common-0.0.3.tgz#2179e8f62991567c3e001cb187f87a26c6432eb3"
-  integrity sha512-pm3G/LLg1oA07/+9SlDL/HMriO3H6/EIvv9CKpjMCGXT9pob1BQyA0Rp8n7zQjsJ3Ht/ODfrB1Kt3MgyM5ql5g==
+"@ticketappdev/common@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@ticketappdev/common/-/common-0.0.4.tgz#f548c7aa53a7dfd065e08eed6605d424684ec499"
+  integrity sha512-GUfUBqcb7ccQ8RNVsqZtFLYQZi+rwItaFYE1DogjX5vNPnAjtg7V+rD+fSX7boFG4Ki4nJ8TYyXYmTRjrWbgKw==
   dependencies:
     "@types/cookie-session" "^2.0.43"
     "@types/express" "^4.17.13"
