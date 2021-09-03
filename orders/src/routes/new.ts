@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import validator from "validator";
 import express, { Request, Response } from "express";
 import {
   BadRequestError,
@@ -23,7 +23,7 @@ router.post(
     body("ticketId")
       .not()
       .isEmpty()
-      .custom((input: string) => mongoose.Types.ObjectId.isValid(input))
+      .custom((input: string) => validator.isMongoId(input))
       .withMessage("Ticket Id must be provided"),
   ],
   validateRequest,
