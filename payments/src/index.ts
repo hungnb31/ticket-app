@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 
 import { app } from "./app";
+import { OrderCancelledListener } from "./events/listeners/order-cancelled-listener";
+import { OrderCreatedListener } from "./events/listeners/order-created-listener";
 import { natsWrapper } from "./nats-wrapper";
 
 const start = async () => {
@@ -33,6 +35,9 @@ const start = async () => {
     });
     process.on("SIGINT", () => natsWrapper.client.close());
     process.on("SIGTERM", () => natsWrapper.client.close());
+
+    new OrderCancelledListener(natsWrapper.client).listen();
+    new OrderCreatedListener(natsWrapper.client).listen();
     // -----------------
 
     await mongoose.connect(process.env.MONGO_URI, {
@@ -45,7 +50,7 @@ const start = async () => {
     console.error(error);
   }
   app.listen(3000, () => {
-    console.log("Ticket Service is listening on port 3000");
+    console.log("Payment Service is listening on port 3000");
   });
 };
 
