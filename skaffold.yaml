@@ -40,3 +40,11 @@ build:
         manual:
           - dest: .
             src: "**/*.ts"
+    - image: 29ff/ticketapp-expiration
+      context: expiration
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: "**/*.ts"
