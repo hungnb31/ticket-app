@@ -48,3 +48,11 @@ build:
         manual:
           - dest: .
             src: "**/*.ts"
+    - image: 29ff/ticketapp-payments
+      context: payments
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: "**/*.ts"
