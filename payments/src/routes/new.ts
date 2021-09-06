@@ -33,11 +33,11 @@ router.post(
     // charge
     await stripe.charges.create({
       currency: "usd",
-      amount: order.price + 100, // convert to cent
+      amount: order.price * 100, // convert to cent
       source: token,
     });
 
-    res.send({ success: true });
+    res.status(201).send({ success: true });
   }
 );
 
