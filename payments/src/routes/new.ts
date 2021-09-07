@@ -9,6 +9,7 @@ import {
 import express, { Request, Response } from "express";
 import { body } from "express-validator";
 import { Order } from "../models/order";
+import { Payment } from "../models/payment";
 import { stripe } from "../stripe";
 
 const router = express.Router();
@@ -31,13 +32,19 @@ router.post(
       throw new BadRequestError("Can not pay for an cancelled order!");
 
     // charge
-    await stripe.charges.create({
+    const charge = await stripe.charges.create({
       currency: "usd",
       amount: order.price * 100, // convert to cent
       source: token,
     });
 
-    res.status(201).send({ success: true });
+    // create payment
+    const payment = Payment.build({
+      orderId,
+      stripeId: charge.id,
+    });
+
+    res.status(201).send(payment);
   }
 );
 
