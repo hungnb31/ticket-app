@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Router from "next/router";
+
 import { useRequest } from "../../hooks/use-request";
 
 const NewTicket = () => {
@@ -19,6 +21,7 @@ const NewTicket = () => {
         setTitle("");
         setPrice("");
         setIsSuccess(true);
+        router.push("/");
       }
     );
 
