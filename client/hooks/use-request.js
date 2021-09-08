@@ -6,7 +6,7 @@ export const useRequest = async (url, method, body, onSuccess) => {
   try {
     const res = await axios[method](url, body);
     response = res.data;
-    onSuccess();
+    onSuccess(response);
   } catch (error) {
     errors = error.response.data.errors;
   }
