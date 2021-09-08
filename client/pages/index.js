@@ -13,9 +13,7 @@ const Index = ({ currentUser }) => {
 };
 
 Index.getInitialProps = async (context) => {
-  const client = buildClient(context);
-  const { data } = await client.get("/api/users/currentuser");
-  return data;
+  return {};
 };
 
 export default Index;
