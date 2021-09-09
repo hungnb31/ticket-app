@@ -6,7 +6,7 @@ import { useRequest } from "../../hooks/use-request";
 const NewTicket = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
-  const [errs, setErrs] = useState([]);
+  const [errors, setErrors] = useState([]);
   const [isSuccess, setIsSuccess] = useState(false);
 
   const onSubmit = async (e) => {
@@ -17,15 +17,15 @@ const NewTicket = () => {
       "post",
       { title, price },
       () => {
-        setErrs([]);
+        setErrors([]);
         setTitle("");
         setPrice("");
         setIsSuccess(true);
-        router.push("/");
+        Router.push("/");
       }
     );
 
-    if (errors) setErrs(errors);
+    setErrors(errors);
   };
 
   const onBlur = () => {
@@ -46,10 +46,10 @@ const NewTicket = () => {
           Create ticket successfully!
         </div>
       )}
-      {errs && errs.length > 0 && (
+      {errors && errors.length > 0 && (
         <div className="alert alert-danger mt-2">
           <ul className="my-0">
-            {errs.map((err) => (
+            {errors.map((err) => (
               <li key={err.message}>{err.message}</li>
             ))}
           </ul>

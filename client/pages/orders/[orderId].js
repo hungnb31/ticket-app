@@ -1,3 +1,4 @@
+import Router from "next/router";
 import { useEffect, useState } from "react";
 import StripeCheckout from "react-stripe-checkout";
 
@@ -11,7 +12,7 @@ const OrderShow = ({ order, currentUser }) => {
       "/api/payments",
       "post",
       { orderId: order.id, token: token.id },
-      (payment) => console.log(payment)
+      (payment) => Router.push("/orders")
     );
   };
 
