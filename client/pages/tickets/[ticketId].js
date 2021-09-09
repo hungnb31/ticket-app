@@ -1,3 +1,4 @@
+import Router from "next/router";
 import { useState } from "react";
 import { useRequest } from "../../hooks/use-request";
 
@@ -12,6 +13,7 @@ const TicketShow = ({ ticket }) => {
       },
       (order) => {
         setErrors([]);
+        Router.push("/orders/[orderId]", `/orders/${order.id}`);
       }
     );
 
