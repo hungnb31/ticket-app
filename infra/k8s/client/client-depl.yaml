@@ -16,7 +16,7 @@ spec:
         - name: client
           image: 29ff/ticketapp-client
       imagePullSecrets:
-        - name: docker-registry
+        - name: regcred
 ---
 apiVersion: v1
 kind: Service

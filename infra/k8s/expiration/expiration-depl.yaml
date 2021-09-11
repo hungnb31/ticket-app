@@ -27,4 +27,4 @@ spec:
             - name: REDIS_HOST
               value: expiration-redis-srv
       imagePullSecrets:
-        - name: docker-registry
+        - name: regcred
