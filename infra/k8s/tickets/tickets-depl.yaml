@@ -32,7 +32,7 @@ spec:
                   name: jwt-secret
                   key: JWT_KEY
       imagePullSecrets:
-        - name: docker-registry
+        - name: regcred
 ---
 apiVersion: v1
 kind: Service
