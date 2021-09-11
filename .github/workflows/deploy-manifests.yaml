@@ -15,5 +15,5 @@ jobs:
       - uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.PROVIDER_ACCESS_TOKEN }}
-      - run: doctl kubernetes cluster kubeconfig save ticketapp
+      - run: doctl kubernetes cluster kubeconfig save ticketapp-prod
       - run: kubectl apply --recursive -f infra/k8s && kubectl apply --recursive -f infra/k8s-prod
