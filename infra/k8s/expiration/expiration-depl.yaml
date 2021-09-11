@@ -26,3 +26,5 @@ spec:
               value: http://nats-srv:4222
             - name: REDIS_HOST
               value: expiration-redis-srv
+      imagePullSecrets:
+        - name: docker-registry
