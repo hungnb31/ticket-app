@@ -7,7 +7,6 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   rules:
-    # new commit to be rerun
     - host: ticketapp.dev
       http:
         paths:
