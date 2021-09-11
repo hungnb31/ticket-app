@@ -8,6 +8,7 @@ import { natsWrapper } from "./nats-wrapper";
 import { PaymentCreatedListener } from "./events/listeners/payment-created-listener";
 
 const start = async () => {
+  console.log("Order service is starting up...");
   if (!process.env.JWT_KEY) {
     throw new Error("JWT_KEY must be defined");
   }
