@@ -20,7 +20,7 @@ build:
     - image: 29ff/ticketapp-client
       context: client
       docker:
-        dockerfile: Dockerfile
+        dockerfile: docker/Dockerfile
       sync:
         manual:
           - dest: .
